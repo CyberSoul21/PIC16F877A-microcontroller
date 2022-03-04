@@ -1,0 +1,31 @@
+[PROJECT]
+Target=C:\Documents and Settings\Administrador\Escritorio\timers\ejemplo.hex
+Development_Mode=
+Processor_Text=PIC16F877A
+ToolSuite=CCS
+Processor=0x877A
+[C:\Documents and Settings\Administrador\Escritorio\timers\ejemplo]
+Type=4
+Path=
+FileList=
+BuildTool=
+OptionString=
+AdditionalOptionString=
+[mru-list]
+1=C:\Documents and Settings\Administrador\Escritorio\timers\ejemplo.c
+[Windows]
+0=0000 %S 0 0 796 451 3 0
+[Opened Files]
+1=..\..\..\..\..\Desktop\Servomecanismos\measure.c
+2=..\..\cALCULADORA\calculadora.c
+3=timers.c
+4=Prueba\prueba.c
+5=ejemplo.c
+6=..\..\..\..\..\Desktop\Servomecanismos\test.c
+7=
+[Target Data]
+OptionString=-p +FM
+FileList=C:\Documents and Settings\Administrador\Escritorio\timers\ejemplo.c
+[Units]
+Count=1
+1=ejemplo (main)

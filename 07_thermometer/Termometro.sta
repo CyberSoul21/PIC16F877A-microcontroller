@@ -1,0 +1,66 @@
+
+ROM used: 1157 (14%)
+          1157 (14%) including unused fragments
+
+          0 Average locations per line
+          3 Average locations per statement
+
+RAM used: 16 (4%) at main() level
+          41 (11%) worst case
+
+Stack used: 4 worst case (out of 8 total available)
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+   45    30   8  Termometro.c
+  326     0   0  ..\..\..\..\Archivos de programa\PICC\devices\16f877A.h
+  186    89  23  lcd3.c
+ 2172   260  69  ..\..\..\..\Archivos de programa\PICC\drivers\math.h
+----- -----
+ 2729   379 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0     21   2   1             @delay_ms1
+ Inline        1   236  2.3  lcd_leer
+0     55   5   3   388  2.9  lcd_enviar
+0     47   4   1   447  3.8  lcd_init
+0     57   5   4   667  6.0  lcd_gotoxy
+0     52   4   1   441  7.5  lcd_putc
+0     63   5  10             @FLT
+0     31   3   2             @ITOF
+0    117  10  13             @MULFF
+0    228  20   1   913  4.7  MAIN
+0      6   1   0             @const231
+0     70   6   3             @PSTRINGC7_85
+0      4   0   0             @const233
+0      8   1   0             @const234
+0     80   7   4             @PSTRINGCN7_85
+ Inline        5             @FTOSD
+0     66   6  13             @DIV3232
+0    233  20  13             @PRINTF_L32D_85FPFPF
+0      7   1   0             @const245
+0      8   1   0             @const246
+
+Program metrics:
+    Functions               6
+    Statements              379
+    Comments                367
+    Volume (V)              4468
+    Difficilty (D)          25.8
+    Effort to implement (E) 115364
+    Time to implement (T)   1 hours, 47 minutes
+    Est Delivered Bugs (B)  1
+    Cyclomatic Complexity   14
+    Maintainability (MI)    47
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00003     4  0  
+00004-007FF  1153  891  
+00800-00FFF     0  2048  
+01000-017FF     0  2048  
+01800-01FFF     0  2048  
+
+
+

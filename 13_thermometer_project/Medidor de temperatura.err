@@ -1,0 +1,5 @@
+>>> Warning 229 "Medidor de temperatura.c" Line 106(1,1): Subscript out of range
+>>> Warning 216 "Medidor de temperatura.c" Line 204(0,1): Interrupts disabled during call to prevent re-entrancy:  (@MULFF)
+>>> Warning 216 "Medidor de temperatura.c" Line 204(0,1): Interrupts disabled during call to prevent re-entrancy:  (@ITOF)
+      Memory usage:   ROM=43%      RAM=53% - 64%
+      0 Errors,  3 Warnings.

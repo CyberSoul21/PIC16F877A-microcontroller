@@ -1,0 +1,84 @@
+
+ROM used: 5947 (73%)
+          5995 (73%) including unused fragments
+
+          2 Average locations per line
+          12 Average locations per statement
+
+RAM used: 52 (14%) at main() level
+          140 (38%) worst case
+
+Stack used: 4 worst case (out of 8 total available)
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+  157   106  21  Calculadora con funcion seno.c
+  326     0   0  ..\..\..\..\Archivos de programa\PICC\devices\16f877a.h
+  187    89  17  lcd2.c
+  137    57  11  kbd1.c
+ 2172   260  51  ..\..\..\..\Archivos de programa\PICC\drivers\math.h
+----- -----
+ 2979   512 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0     21   0   1             @delay_ms1
+ Inline        1   236  2.3  lcd_leer
+0     53   1   3   388  2.9  lcd_enviar
+0     46   1   1   447  3.8  lcd_init
+0     57   1   4   667  6.0  lcd_gotoxy
+0     52   1   1   441  7.5  lcd_putc
+0     20   0   0             @const93
+0      3   0   0     3  0.0  kbd_init
+0    111   2   3  4259 10.2  kbd_getc
+0      8   0   0             @goto10153
+0     32   1   0   233  2.8  tecla
+0    459   8  20  1124 10.7  CEIL_FLOOR
+0     65   1  10             @FLT
+0     33   1   4             @SFTOI
+0     31   1   2             @ITOF
+0    204   3  14             @DIVFF
+0    326   5  16             @ADDFF
+0    119   2  13             @MULFF
+ Inline        4    43  2.1  floor
+ Inline        4    44  1.9  ceil
+0    277   5  16   257  7.2  fmod
+1    653  11  22  1071  8.0  exp
+0     39   1   2             @SITOF
+1    746  13  25  1228  9.9  log
+ Inline       12   556  7.5  pow
+ Inline       50  1171 10.4  cos
+2    651  11   8    44  1.9  sin
+2    922  16   3  4131 10.9  MAIN
+0      5   0   0             @const256
+0     70   1   3             @PSTRINGC7_86
+0      6   0   0             @const258
+2      9   0   0             @goto10794
+0      6   0   0             @const262
+ Inline        5             @FTOSD
+2     66   1  13             @DIV3232
+2    251   4  13             @PRINTF_L32D_86FPFPF
+1    602  10  10   447  9.0  obtenerNumero
+
+Program metrics:
+    Functions               19
+    Statements              512
+    Comments                443
+    Volume (V)              25544
+    Difficilty (D)          115.4
+    Effort to implement (E) 2946589
+    Time to implement (T)   45 hours, 28 minutes
+    Est Delivered Bugs (B)  7
+    Cyclomatic Complexity   67
+    Maintainability (MI)    126
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00003     4  0  
+00004-007FF  2043  1  
+00800-00FFF  2001  47  
+01000-017FF  1899  149  
+01800-01FFF     0  2048  
+
+
+

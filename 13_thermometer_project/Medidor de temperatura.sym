@@ -1,0 +1,226 @@
+004     @WRITE_PROGRAM_MEMORY8.P1
+004-005 @READ_PROGRAM_MEMORY8.P2
+006     lcd_b
+008     PSP_DATA
+009.0   lcd_rs
+009.1   lcd_rw
+009.2   lcd_enable
+015     CCP_1
+015     CCP_1_LOW
+016     CCP_1_HIGH
+01B     CCP_2_LOW
+01B     CCP_2
+01C     CCP_2_HIGH
+020     @INTERRUPT_AREA
+021     @INTERRUPT_AREA
+022     @INTERRUPT_AREA
+023     @INTERRUPT_AREA
+024     @INTERRUPT_AREA
+025     @INTERRUPT_AREA
+026     @INTERRUPT_AREA
+027     @INTERRUPT_AREA
+028     line
+029-02A value
+02B-02C t
+02D-02E t2
+02F-030 r
+031-032 k
+033-034 i
+035-036 i2
+037     p
+038-03B volt
+03C-03F c
+040-043 ac
+044-047 max
+048-04B min
+04C-04F prom
+050-053 max2
+054-057 min2
+058-05B prom2
+05C-05F maximo
+060-063 minimo
+064-067 promedio
+068-06B a
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+07F     @INTERRUPT_AREA
+09C.6   C1OUT
+09C.7   C2OUT
+0A0-0DB vector
+0FF     @INTERRUPT_AREA
+10D-10E @WRITE_PROGRAM_MEMORY8.P1
+10D-10E @READ_PROGRAM_MEMORY8.P2
+110-143 vector2
+144     @PSTRINGCN7_85.P1
+144     lcd_init.i
+144-147 @PRINTF_L32D_85FPFPF.P1
+144     MAIN.@SCRATCH1
+144     @PSTRINGC7_85.@SCRATCH1
+145     @PSTRINGC7_85.@SCRATCH2
+145     @PSTRINGCN7_85.@SCRATCH1
+146     @PSTRINGC7_85.@SCRATCH3
+146     @PSTRINGCN7_85.@SCRATCH2
+147     @PSTRINGCN7_85.@SCRATCH3
+148     @PRINTF_L32D_85FPFPF.P1
+149     @PRINTF_L32D_85FPFPF.@SCRATCH1
+14A     @PRINTF_L32D_85FPFPF.@SCRATCH2
+14B     @PRINTF_L32D_85FPFPF.@SCRATCH3
+14C     @PRINTF_L32D_85FPFPF.@SCRATCH4
+14D     @PRINTF_L32D_85FPFPF.@SCRATCH5
+14E     @PRINTF_L32D_85FPFPF.@SCRATCH6
+14F     @PRINTF_L32D_85FPFPF.@SCRATCH7
+150     @PRINTF_L32D_85FPFPF.@SCRATCH8
+151-154 @DIV3232.P1
+151     lcd_putc.c
+151-154 @FTOSD.P1
+152     @delay_ms1.P1
+152     lcd_gotoxy.x
+153     lcd_gotoxy.y
+154     lcd_gotoxy.dir
+155-158 @DIV3232.P1
+155     lcd_gotoxy.@SCRATCH1
+155     @FTOSD.@SCRATCH1
+156     lcd_enviar.dir
+157     lcd_enviar.valor
+158     lcd_leer.valor
+158     lcd_enviar.@SCRATCH1
+159     @DIV3232.@SCRATCH1
+15A     @DIV3232.@SCRATCH2
+15B     @DIV3232.@SCRATCH3
+15C     @DIV3232.@SCRATCH4
+15D     @DIV3232.@SCRATCH5
+15E-15F @ITOF.P1
+15E-161 @FLT.P2
+15E-161 @MULFF.P3
+15E     TIMER0_isr.@SCRATCH1
+15F     TIMER0_isr.@SCRATCH2
+160-163 @ADDFF.P1
+160     TIMER0_isr.@SCRATCH3
+161     TIMER0_isr.@SCRATCH4
+162-165 @FLT.P1
+162-165 @MULFF.P2
+162-165 @DIVFF.P3
+164-167 @ADDFF.P1
+166-169 @DIVFF.P1
+166     @FLT.@SCRATCH1
+166     @MULFF.@SCRATCH1
+167     @FLT.@SCRATCH2
+167     @MULFF.@SCRATCH2
+168     @ADDFF.@SCRATCH1
+168     @MULFF.@SCRATCH3
+169     @ADDFF.@SCRATCH2
+169     @MULFF.@SCRATCH4
+16A     @DIVFF.@SCRATCH1
+16A     @ADDFF.@SCRATCH3
+16A     @MULFF.@SCRATCH5
+16B     @DIVFF.@SCRATCH2
+16B     @ADDFF.@SCRATCH4
+16C     @DIVFF.@SCRATCH3
+16C     @ADDFF.@SCRATCH5
+16D     @DIVFF.@SCRATCH4
+16D     @ADDFF.@SCRATCH6
+16E     @DIVFF.@SCRATCH5
+16E     @ADDFF.@SCRATCH7
+16F     @DIVFF.@SCRATCH6
+16F     @ADDFF.@SCRATCH8
+17F     @INTERRUPT_AREA
+1FF     @INTERRUPT_AREA
+27F     @INTERRUPT_AREA
+2FF     @INTERRUPT_AREA
+37F     @INTERRUPT_AREA
+3FF     @INTERRUPT_AREA
+47F     @INTERRUPT_AREA
+4FF     @INTERRUPT_AREA
+57F     @INTERRUPT_AREA
+5FF     @INTERRUPT_AREA
+67F     @INTERRUPT_AREA
+6FF     @INTERRUPT_AREA
+77F     @INTERRUPT_AREA
+7FF     @INTERRUPT_AREA
+87F     @INTERRUPT_AREA
+8FF     @INTERRUPT_AREA
+97F     @INTERRUPT_AREA
+9FF     @INTERRUPT_AREA
+A7F     @INTERRUPT_AREA
+AFF     @INTERRUPT_AREA
+B7F     @INTERRUPT_AREA
+BFF     @INTERRUPT_AREA
+C7F     @INTERRUPT_AREA
+CFF     @INTERRUPT_AREA
+D7F     @INTERRUPT_AREA
+DFF     @INTERRUPT_AREA
+E7F     @INTERRUPT_AREA
+EFF     @INTERRUPT_AREA
+F7F     @INTERRUPT_AREA
+FFF     @INTERRUPT_AREA
+
+ROM Allocation:
+0362  @delay_ms1
+037F  lcd_leer
+0377  lcd_enviar
+03BC  lcd_init
+03F9  lcd_gotoxy
+0436  lcd_putc
+00C5  @FLT
+002F  @ITOF
+024C  @DIVFF
+0106  @ADDFF
+004E  @MULFF
+0800  TIMER0_isr
+0D24  MAIN
+0318  @const252
+047A  @PSTRINGC7_85
+031E  @const254
+0322  @const255
+052A  @FTOSD
+04B4  @DIV3232
+04F8  @PRINTF_L32D_85FPFPF
+0329  @const265
+0332  @const266
+05F7  @PSTRINGCN7_85
+0337  @const269
+0340  @const270
+0345  @const271
+034E  @const272
+0353  @const273
+035C  @const274
+0D24  @cinit
+
+
+User Memory space: 
+
+User Memory space: 
+
+Project Directory:
+    C:\Documents and Settings\Administrador\Escritorio\Proyecto Termometro\
+
+Project Files:
+    Medidor de temperatura.c
+    ..\..\..\..\Archivos de programa\PICC\devices\16f877A.h
+    lcd3.c
+    ..\..\..\..\Archivos de programa\PICC\drivers\math.h
+
+Units:
+    C:\Documents and Settings\Administrador\Escritorio\Proyecto Termometro\Medidor de temperatura (main)
+
+Compiler Settings:
+    Processor:      PIC16F877A
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    Errors:      Medidor de temperatura.err
+    Ext Symbols: Medidor de temperatura.esym
+    INHX8:       Medidor de temperatura.hex
+    Symbols:     Medidor de temperatura.sym
+    List:        Medidor de temperatura.lst
+    Debug/COFF:  Medidor de temperatura.cof
+    Project:     Medidor de temperatura.PJT
+    Call Tree:   Medidor de temperatura.tre
+    Statistics:  Medidor de temperatura.sta

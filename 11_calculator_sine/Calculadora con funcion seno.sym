@@ -1,0 +1,261 @@
+004     @WRITE_PROGRAM_MEMORY8.P1
+004-005 @READ_PROGRAM_MEMORY8.P2
+005.0   lcd_rs
+005     lcd_a
+005.1   lcd_rw
+005.2   lcd_enable
+006     lcd_b
+006     portkbd
+008     PSP_DATA
+015     CCP_1_LOW
+015     CCP_1
+016     CCP_1_HIGH
+01B     CCP_2_LOW
+01B     CCP_2
+01C     CCP_2_HIGH
+020     line
+021     kbd_getc.kbd_call_count
+022.0   kbd_getc.kbd_down
+023     kbd_getc.last_key
+024     kbd_getc.col
+025     dato
+026     dato1
+027     h
+028     x
+029     cont
+02A     i
+02B     z
+02C-02F numero
+030-033 resultado
+034-037 numero2
+038-04B vector
+04C     lcd_init.i
+04C     kbd_getc.kchar
+04C     obtenerNumero.a
+04C-04F @PRINTF_L32D_86FPFPF.P1
+04C-04F sin.x
+04C     MAIN.@SCRATCH1
+04C     @PSTRINGC7_86.@SCRATCH1
+04D     obtenerNumero.r
+04D     kbd_getc.row
+04D     MAIN.@SCRATCH2
+04D     @PSTRINGC7_86.@SCRATCH2
+04E     obtenerNumero.sum
+04E     kbd_getc.@SCRATCH1
+04E     MAIN.@SCRATCH3
+04E     @PSTRINGC7_86.@SCRATCH3
+04F     obtenerNumero.num1
+050     @PRINTF_L32D_86FPFPF.P1
+050     obtenerNumero.num
+050     sin.@SCRATCH1
+051     obtenerNumero.y
+051     sin.@SCRATCH2
+051     @PRINTF_L32D_86FPFPF.@SCRATCH1
+052     sin.@SCRATCH3
+052     @PRINTF_L32D_86FPFPF.@SCRATCH2
+052     obtenerNumero.@SCRATCH1
+053     sin.@SCRATCH4
+053     @PRINTF_L32D_86FPFPF.@SCRATCH3
+053     obtenerNumero.@SCRATCH2
+054-057 cos.x
+054     @PRINTF_L32D_86FPFPF.@SCRATCH4
+054     obtenerNumero.@SCRATCH3
+055     @PRINTF_L32D_86FPFPF.@SCRATCH5
+055     obtenerNumero.@SCRATCH4
+056-059 pow.x
+056     @PRINTF_L32D_86FPFPF.@SCRATCH6
+057     @PRINTF_L32D_86FPFPF.@SCRATCH7
+058-05B cos.y
+058     @PRINTF_L32D_86FPFPF.@SCRATCH8
+059     lcd_putc.c
+059-05C @FTOSD.P1
+059-05C @DIV3232.P2
+05A     lcd_gotoxy.x
+05A     @delay_ms1.P1
+05A-05D pow.y
+05B     lcd_gotoxy.y
+05C-05F cos.t
+05C     lcd_gotoxy.dir
+05D-060 @DIV3232.P1
+05D     lcd_gotoxy.@SCRATCH1
+05D     @FTOSD.@SCRATCH1
+05E     lcd_enviar.dir
+05E-061 fmod.x
+05E     pow.@SCRATCH1
+05F     lcd_enviar.valor
+05F     pow.@SCRATCH2
+060     lcd_leer.valor
+060-063 cos.t2
+060     lcd_enviar.@SCRATCH1
+060     pow.@SCRATCH3
+061     pow.@SCRATCH4
+061     @DIV3232.@SCRATCH1
+062-065 fmod.y
+062-065 log.x
+062-065 exp.x
+062     @DIV3232.@SCRATCH2
+063     @DIV3232.@SCRATCH3
+064     cos.quad
+064     @DIV3232.@SCRATCH4
+065     cos.i
+065     @DIV3232.@SCRATCH5
+066-069 cos.frac
+066-069 log.y
+066-069 exp.y
+066-069 fmod.i
+06A-06D exp.res
+06A-06D log.res
+06A     fmod.@SCRATCH1
+06A     cos.@SCRATCH1
+06B     fmod.@SCRATCH2
+06B     cos.@SCRATCH2
+06C     fmod.@SCRATCH3
+06C     cos.@SCRATCH3
+06D     fmod.@SCRATCH4
+06D     cos.@SCRATCH4
+06E-071 log.r
+06E-071 floor.x
+06E-071 exp.r
+06E-071 ceil.x
+072-075 CEIL_FLOOR.x
+072     exp.n
+072-075 log.y2
+073.0   exp.s
+076     log.n
+076     CEIL_FLOOR.n
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+07B-07E CEIL_FLOOR.y
+07B     exp.@SCRATCH1
+07B     log.@SCRATCH1
+07C     exp.@SCRATCH2
+07C     log.@SCRATCH2
+07D     exp.@SCRATCH3
+07D     log.@SCRATCH3
+07E     exp.@SCRATCH4
+07E     log.@SCRATCH4
+09C.6   C1OUT
+09C.7   C2OUT
+0A0-0A3 CEIL_FLOOR.res
+0A0-0A1 @SITOF.P1
+0A0-0B7 cos.p
+0A4-0A5 CEIL_FLOOR.l
+0A6.0   CEIL_FLOOR.s
+0A7     CEIL_FLOOR.@SCRATCH1
+0A8     CEIL_FLOOR.@SCRATCH2
+0A9     CEIL_FLOOR.@SCRATCH3
+0AA     CEIL_FLOOR.@SCRATCH4
+0B8-0BB @SFTOI.P1
+0B8-0BB @DIVFF.P2
+0B8-0BB @FLT.P3
+0BC-0BF @ADDFF.P1
+0BC-0BD @ITOF.P2
+0BC-0BF @DIVFF.P3
+0BC-0BF @FLT.P4
+0BC-0BF @MULFF.P5
+0C0-0C3 @ADDFF.P1
+0C0-0C3 @MULFF.P2
+0C0     @FLT.@SCRATCH1
+0C0     @DIVFF.@SCRATCH1
+0C1     @FLT.@SCRATCH2
+0C1     @DIVFF.@SCRATCH2
+0C2     @DIVFF.@SCRATCH3
+0C3     @DIVFF.@SCRATCH4
+0C4     @DIVFF.@SCRATCH5
+0C4     @ADDFF.@SCRATCH1
+0C4     @MULFF.@SCRATCH1
+0C5     @DIVFF.@SCRATCH6
+0C5     @ADDFF.@SCRATCH2
+0C5     @MULFF.@SCRATCH2
+0C6     @ADDFF.@SCRATCH3
+0C6     @MULFF.@SCRATCH3
+0C7     @ADDFF.@SCRATCH4
+0C7     @MULFF.@SCRATCH4
+0C8     @ADDFF.@SCRATCH5
+0C8     @MULFF.@SCRATCH5
+0C9     @ADDFF.@SCRATCH6
+0CA     @ADDFF.@SCRATCH7
+0CB     @ADDFF.@SCRATCH8
+10D-10E @WRITE_PROGRAM_MEMORY8.P1
+10D-10E @READ_PROGRAM_MEMORY8.P2
+
+ROM Allocation:
+0029  @delay_ms1
+0045  lcd_leer
+003E  lcd_enviar
+0073  lcd_init
+00A4  lcd_gotoxy
+00DD  lcd_putc
+0004  KEYS
+00A1  kbd_init
+0157  kbd_getc
+01C6  @goto10153
+01CE  tecla
+04F8  CEIL_FLOOR
+020D  @FLT
+031A  @SFTOI
+01EE  @ITOF
+024E  @DIVFF
+033B  @ADDFF
+0481  @MULFF
+0788  floor
+074B  ceil
+06C3  fmod
+0AEA  exp
+07D8  @SITOF
+0800  log
+0DA5  pow
+102C  cos
+1000  sin
+13C8  MAIN
+0018  @const256
+0111  @PSTRINGC7_86
+001D  @const258
+1762  @goto10794
+0023  @const262
+12FE  @FTOSD
+128B  @DIV3232
+07E2  @PRINTF_L32D_86FPFPF
+0D77  obtenerNumero
+13C8  @cinit
+141F  principio
+
+
+User Memory space: 
+
+User Memory space: 
+
+Project Directory:
+    C:\Documents and Settings\Administrador\Escritorio\Calculadora funcion Seno\
+
+Project Files:
+    Calculadora con funcion seno.c
+    ..\..\..\..\Archivos de programa\PICC\devices\16f877a.h
+    lcd2.c
+    kbd1.c
+    ..\..\..\..\Archivos de programa\PICC\drivers\math.h
+
+Units:
+    C:\Documents and Settings\Administrador\Escritorio\Calculadora funcion Seno\Calculadora con funcion seno (main)
+
+Compiler Settings:
+    Processor:      PIC16F877A
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    Errors:      Calculadora con funcion seno.err
+    Ext Symbols: Calculadora con funcion seno.esym
+    INHX8:       Calculadora con funcion seno.hex
+    Symbols:     Calculadora con funcion seno.sym
+    List:        Calculadora con funcion seno.lst
+    Debug/COFF:  Calculadora con funcion seno.cof
+    Project:     Calculadora con funcion seno.PJT
+    Call Tree:   Calculadora con funcion seno.tre
+    Statistics:  Calculadora con funcion seno.sta

@@ -1,0 +1,7 @@
+Warning[205] D:\W!LS0N\MICROCONTROLADORES\PROYECTOS\SUMADOR1\SUMADOR.ASM 1 : Found directive in column 1. (list)
+Message[302] D:\W!LS0N\MICROCONTROLADORES\PROYECTOS\SUMADOR1\SUMADOR.ASM 14 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\W!LS0N\MICROCONTROLADORES\PROYECTOS\SUMADOR1\SUMADOR.ASM 16 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\W!LS0N\MICROCONTROLADORES\PROYECTOS\SUMADOR1\SUMADOR.ASM 18 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\W!LS0N\MICROCONTROLADORES\PROYECTOS\SUMADOR1\SUMADOR.ASM 20 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Warning[207] D:\W!LS0N\MICROCONTROLADORES\PROYECTOS\SUMADOR1\SUMADOR.ASM 23 : Found label after column 1. (WIL)
+Warning[205] D:\W!LS0N\MICROCONTROLADORES\PROYECTOS\SUMADOR1\SUMADOR.ASM 31 : Found directive in column 1. (END)

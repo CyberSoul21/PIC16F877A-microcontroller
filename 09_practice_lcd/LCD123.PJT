@@ -1,0 +1,42 @@
+[PROJECT]
+Target=LCD123.HEX
+Development_Mode=2
+Processor=0x877A
+Processor_Text=PIC16F877A
+ToolSuite=CCS
+
+[Directories]
+Include=
+Library=
+LinkerScript=
+
+[Target Data]
+FileList=C:\Documents and Settings\Administrador\Escritorio\PRACTICA LCD\LCD123.c
+BuildTool=C-COMPILER
+OptionString=+FM
+AdditionalOptionString=
+BuildRequired=1
+
+[LCD123.c]
+Type=4
+Path=
+FileList=
+BuildTool=
+OptionString=
+AdditionalOptionString=
+
+[mru-list]
+1=LCD123.c
+
+[Windows]
+0=0000 LCD123.c 0 0 796 451 3 0
+
+[Opened Files]
+1=..\Proyecto2\Proyecto_Máquina.c
+2=LCD123.c
+3=flex_lcd.c
+4=
+5=
+[Units]
+Count=1
+1=LCD123 (main)

@@ -1,0 +1,135 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+004     @WRITE_PROGRAM_MEMORY8.P2
+006     lcd_b
+008     PSP_DATA
+009.0   lcd_rs
+009.1   lcd_rw
+009.2   lcd_enable
+015     CCP_1_LOW
+015     CCP_1
+016     CCP_1_HIGH
+01B     CCP_2_LOW
+01B     CCP_2
+01C     CCP_2_HIGH
+020     line
+021     value
+022-025 volt
+026-029 c
+02A     @PSTRINGCN7_85.P1
+02A-02D @FLT.P2
+02A     lcd_init.i
+02A-02D @PRINTF_L32D_85FPFPF.P1
+02A-02B @ITOF.P2
+02A     MAIN.@SCRATCH1
+02A     @PSTRINGC7_85.@SCRATCH1
+02B     @PSTRINGC7_85.@SCRATCH2
+02B     @PSTRINGCN7_85.@SCRATCH1
+02C     @PSTRINGC7_85.@SCRATCH3
+02C     @PSTRINGCN7_85.@SCRATCH2
+02D     @PSTRINGCN7_85.@SCRATCH3
+02E-031 @FLT.P1
+02E     @PRINTF_L32D_85FPFPF.P2
+02F     @PRINTF_L32D_85FPFPF.@SCRATCH1
+030     @PRINTF_L32D_85FPFPF.@SCRATCH2
+031     @PRINTF_L32D_85FPFPF.@SCRATCH3
+032     @FLT.@SCRATCH1
+032     @PRINTF_L32D_85FPFPF.@SCRATCH4
+033     @FLT.@SCRATCH2
+033     @PRINTF_L32D_85FPFPF.@SCRATCH5
+034     @PRINTF_L32D_85FPFPF.@SCRATCH6
+035     @PRINTF_L32D_85FPFPF.@SCRATCH7
+036     @PRINTF_L32D_85FPFPF.@SCRATCH8
+037     lcd_putc.c
+037-03A @DIV3232.P1
+037-03A @MULFF.P2
+037-03A @FTOSD.P3
+038     lcd_gotoxy.x
+038     @delay_ms1.P1
+039     lcd_gotoxy.y
+03A     lcd_gotoxy.dir
+03B-03E @DIV3232.P1
+03B-03E @MULFF.P2
+03B     lcd_gotoxy.@SCRATCH1
+03B     @FTOSD.@SCRATCH1
+03C     lcd_enviar.dir
+03D     lcd_enviar.valor
+03E     lcd_leer.valor
+03E     lcd_enviar.@SCRATCH1
+03F     @MULFF.@SCRATCH1
+03F     @DIV3232.@SCRATCH1
+040     @MULFF.@SCRATCH2
+040     @DIV3232.@SCRATCH2
+041     @MULFF.@SCRATCH3
+041     @DIV3232.@SCRATCH3
+042     @MULFF.@SCRATCH4
+042     @DIV3232.@SCRATCH4
+043     @MULFF.@SCRATCH5
+043     @DIV3232.@SCRATCH5
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+09C.6   C1OUT
+09C.7   C2OUT
+10D-10E @WRITE_PROGRAM_MEMORY8.P1
+10D-10E @READ_PROGRAM_MEMORY8.P2
+
+ROM Allocation:
+0025  @delay_ms1
+0042  lcd_leer
+003A  lcd_enviar
+0071  lcd_init
+00A0  lcd_gotoxy
+00D9  lcd_putc
+0362  @FLT
+0153  @ITOF
+0172  @MULFF
+03A1  MAIN
+0004  @const231
+010D  @PSTRINGC7_85
+000A  @const233
+000E  @const234
+01E7  @PSTRINGCN7_85
+02A0  @FTOSD
+0237  @DIV3232
+0279  @PRINTF_L32D_85FPFPF
+0016  @const245
+001D  @const246
+03A1  @cinit
+
+
+User Memory space: 
+
+User Memory space: 
+
+Project Directory:
+    C:\Documents and Settings\Administrador\Escritorio\TERMOMETRO\
+
+Project Files:
+    Termometro.c
+    ..\..\..\..\Archivos de programa\PICC\devices\16f877A.h
+    lcd3.c
+    ..\..\..\..\Archivos de programa\PICC\drivers\math.h
+
+Units:
+    C:\Documents and Settings\Administrador\Escritorio\TERMOMETRO\Termometro (main)
+
+Compiler Settings:
+    Processor:      PIC16F877A
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    Errors:      Termometro.err
+    Ext Symbols: Termometro.esym
+    INHX8:       Termometro.hex
+    Symbols:     Termometro.sym
+    List:        Termometro.lst
+    Debug/COFF:  Termometro.cof
+    Project:     Termometro.PJT
+    Call Tree:   Termometro.tre
+    Statistics:  Termometro.sta

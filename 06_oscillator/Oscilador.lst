@@ -1,0 +1,384 @@
+CCS PCM C Compiler, Version 4.104, 5967               28-Sep-11 14:13
+
+               Filename: C:\Documents and Settings\Administrador\Escritorio\Oscilador\Oscilador.lst
+
+               ROM used: 136 words (2%)
+                         Largest free fragment is 2048
+               RAM used: 8 (2%) at main() level
+                         9 (2%) worst case
+               Stack:    1 locations
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   019
+0003:  NOP
+.................... #include <16f877A.h> 
+.................... //////// Standard Header file for the PIC16F877A device //////////////// 
+.................... #device PIC16F877A 
+.................... #list 
+....................  
+.................... #use delay (clock=4000000)  
+*
+0004:  MOVLW  23
+0005:  MOVWF  04
+0006:  BCF    03.7
+0007:  MOVF   00,W
+0008:  BTFSC  03.2
+0009:  GOTO   018
+000A:  MOVLW  01
+000B:  MOVWF  78
+000C:  CLRF   77
+000D:  DECFSZ 77,F
+000E:  GOTO   00D
+000F:  DECFSZ 78,F
+0010:  GOTO   00C
+0011:  MOVLW  4A
+0012:  MOVWF  77
+0013:  DECFSZ 77,F
+0014:  GOTO   013
+0015:  GOTO   016
+0016:  DECFSZ 00,F
+0017:  GOTO   00A
+0018:  RETURN
+.................... #fuses xt, nowdt 
+.................... #include <lcd3.c> 
+.................... //////////////////////////////////////////////////////////////////////////////////// 
+.................... //                           LCD.C                                // 
+.................... //                FUNCIONES PARA GESTION DE DISPLAY LCD                     // 
+.................... //         8BITS, FUENTE 5X7, 2,3,4 LINEAS X 16, 20 CARACTERES:                // 
+.................... //       lcd_init() Debe ser invocada antes que las otras funciones.            // 
+.................... //       lcd_putc(c) Visualiza c en la siguiente posición del display.            // 
+.................... //                Caracteres especiales de control:                        // 
+.................... //                      \f Borra display                              // 
+.................... //                      \n Salta a la siguiente línea                    // 
+.................... //                      \b Retrocede una posición.                        // 
+.................... //       lcd_gotoxy(x,y) Selecciona una nueva posición de escritura en el display. // 
+.................... //                  donde x es el caracter de 1 a 16 o 20 según Display,      // 
+.................... //                  donde y   es el número de la línea de 1 a 4                 // 
+.................... //                   (la esquina superior izquierda es 1,1)                  // 
+.................... //       lcd_getc(x,y) Devuelve el caracter de la posición x,y del display.          // 
+.................... //      NOTA: Para emplear display de N*16 o N*20 Carácteres Por Línea            // 
+.................... //       poner los valores correspondientes en lcd (quitar los comentarios abajo)  // 
+.................... //      PINES DE CONTROL RA0(rs(pin4)),RA1(rw(pin5)),RA3(en(pin6))              // 
+.................... //      PINES DE DATOS DE RB0(db0(pin7)) A RB7(db7(pin14))                    // 
+.................... //                  MODIF.: ING. FRANK GIRALDO - UD                       // 
+.................... //////////////////////////////////////////////////////////////////////////////////// 
+....................  
+.................... //--------------------------------------------------------------------------------// 
+.................... #bit lcd_enable = 9.2 
+.................... #bit lcd_rw = 9.1 
+.................... #bit lcd_rs = 9.0 
+.................... #byte lcd_b = 6 //portb 
+.................... int line; 
+.................... // 
+.................... //CONFIGURACION LCD 4*16 LINEAS 
+.................... //#define LCD_LINEA1 0x80   // Direccion de memoria para la primera linea 
+.................... //#define LCD_LINEA2 0x40   // Direccion de memoria para la segunda linea 
+.................... //#define LCD_LINEA3 0x10   // Direccion de memoria para la tercera linea 
+.................... //#define LCD_LINEA4 0x50   // Direccion de memoria para la cuarta linea 
+.................... // 
+.................... // 
+.................... //CONFIGURACION LCD 4*20 LINEAS 
+.................... #define LCD_LINEA1 0x80 // Direccion de memoria para la primera linea 
+.................... #define LCD_LINEA2 0x40 // Direccion de memoria para la segunda linea 
+.................... #define LCD_LINEA3 0x14 // Direccion de memoria para la tercera linea 
+.................... #define LCD_LINEA4 0x54 // Direccion de memoria para la cuarta linea 
+.................... // 
+.................... // 
+.................... #define LCD_DATO 1 
+.................... #define LCD_COMANDO 0 
+.................... #define LCD_CLEAR 0x01 
+.................... #define LCD_HOME 0x02 
+.................... #define LCD_DISPLAY_OFF 0x08 
+.................... #define LCD_DISPLAY_ON 0x0C 
+.................... #define LCD_CURSOR_ON 0x0E 
+.................... #define LCD_CURSOR_OFF 0x0C 
+.................... #define LCD_CURSOR_BLINK 0x0F 
+.................... #define LCD_INC 0x06 
+.................... #define LCD_DEC 0x04 
+.................... #define LCD_CURSOR_SHIFT_LEFT 0x10 
+.................... #define LCD_CURSOR_SHIFT_RIGHT 0x14 
+.................... #define LCD_DISPLAY_SHIFT_RIGHT 0x1C 
+.................... #define LCD_DISPLAY_SHIFT_LEFT 0x18 
+.................... #define LCDCGRAM 0x40 
+.................... // 
+.................... int lcd_leer() 
+.................... { 
+.................... int valor; 
+.................... set_tris_e(0xF8); 
+.................... set_tris_b(0xFF); 
+....................  
+.................... lcd_rw = 1; 
+.................... delay_cycles(1); 
+.................... lcd_enable = 1; 
+.................... delay_cycles(1); 
+.................... valor = lcd_b; 
+.................... lcd_enable = 0; 
+.................... delay_us(40); 
+....................  
+.................... set_tris_b(0x00); 
+.................... return valor; 
+.................... } 
+.................... // 
+.................... void lcd_size(int ln, int ch){ 
+....................  
+.................... } 
+.................... // 
+.................... void lcd_enviar(int dir, int valor){ 
+.................... set_tris_e(0xF8); 
+.................... set_tris_b(0x00); 
+....................  
+.................... lcd_rs = 0; 
+.................... while( bit_test(lcd_leer(),7) ); 
+.................... lcd_rs = dir; 
+.................... delay_cycles(1); 
+.................... lcd_rw = 0; 
+.................... delay_cycles(1); 
+.................... lcd_enable = 0; 
+.................... lcd_b = valor; 
+.................... delay_cycles(1); 
+.................... lcd_enable = 1; 
+.................... delay_us(2); 
+.................... lcd_enable = 0; 
+.................... delay_us(40); 
+.................... } 
+.................... // 
+.................... void lcd_init() 
+.................... { 
+.................... int i; 
+.................... set_tris_e(0xF8); 
+.................... set_tris_b(0x00); 
+....................  
+.................... lcd_enable = 0; 
+.................... lcd_rw = 0; 
+.................... lcd_rs = 0; 
+.................... delay_ms(15); 
+....................  
+.................... for(i=0; i<3; i++) 
+.................... { 
+.................... lcd_enviar(LCD_COMANDO,0x38); 
+.................... delay_ms(5); 
+.................... } 
+.................... lcd_enviar(LCD_COMANDO,LCD_DISPLAY_ON); 
+.................... lcd_enviar(LCD_COMANDO,0x06); 
+.................... lcd_enviar(LCD_COMANDO,LCD_CLEAR); 
+.................... lcd_enviar(LCD_COMANDO,LCD_HOME); 
+.................... line=0; 
+.................... } 
+.................... // 
+.................... void lcd_gotoxy( byte x, byte y) { 
+.................... byte dir; 
+.................... dir=0; 
+.................... line=y; 
+.................... if(x==0) 
+....................    x=1; 
+.................... else{ 
+.................... } 
+.................... if(y!=0){ 
+....................       if(y==1){ 
+....................       dir=LCD_LINEA1; 
+....................       dir+=x-1; 
+....................             } 
+....................       else{   if(y==2){ 
+....................             dir=LCD_LINEA2; 
+....................             dir+=x-1; 
+....................                   } 
+....................                    else{   if(y==3){ 
+....................                         dir=LCD_LINEA3; 
+....................                         dir+=x-1; 
+....................                               } 
+....................                         else{   if(y==4){ 
+....................                               dir=LCD_LINEA4; 
+....................                               dir+=x-1; 
+....................                                     } 
+....................                            } 
+....................                      } 
+....................          } 
+....................       } 
+.................... lcd_enviar(LCD_COMANDO,0x80|dir); 
+.................... } 
+.................... // 
+.................... void lcd_putc( char c) { 
+.................... switch (c) { 
+.................... case '\f' : lcd_enviar(LCD_COMANDO,0x01); 
+....................          delay_ms(2); 
+....................          break; 
+.................... case '\n' : ++line; 
+....................          if(line>=1 || line<=4) 
+....................             lcd_gotoxy(1,line); 
+....................          else{ 
+....................             line=0; 
+....................             lcd_gotoxy(1,1); 
+....................             } 
+....................          break; 
+.................... case '\b' : lcd_enviar(LCD_COMANDO,0x10); 
+....................          break; 
+.................... default :   lcd_enviar(LCD_DATO,c); 
+....................          break; 
+.................... } 
+.................... } 
+.................... // 
+.................... char lcd_getc( int x, int y) { 
+.................... char valor; 
+.................... lcd_gotoxy(x,y); 
+....................  
+.................... lcd_rs = 1; 
+.................... valor = lcd_leer(); 
+.................... lcd_rs = 0; 
+.................... return valor; 
+.................... } 
+....................  
+....................  
+.................... void main() 
+.................... { 
+0019:  CLRF   04
+001A:  BCF    03.7
+001B:  MOVLW  1F
+001C:  ANDWF  03,F
+001D:  BSF    03.5
+001E:  BSF    1F.0
+001F:  BSF    1F.1
+0020:  BSF    1F.2
+0021:  BCF    1F.3
+0022:  MOVLW  07
+0023:  MOVWF  1C
+....................  SET_TRIS_C(0xFF); 
+*
+0027:  MOVLW  FF
+0028:  BSF    03.5
+0029:  MOVWF  07
+002A:  BCF    03.5
+002B:  MOVWF  21
+....................  SET_TRIS_D(0x00); 
+002C:  MOVLW  00
+002D:  BSF    03.5
+002E:  MOVWF  08
+....................  output_low(PIN_D2); 
+002F:  BCF    08.2
+0030:  BCF    03.5
+0031:  BCF    08.2
+....................   
+....................  While(true) 
+....................  { 
+....................      while(input(pin_c4)) 
+....................      { 
+0032:  BSF    21.4
+0033:  MOVF   21,W
+0034:  BSF    03.5
+0035:  MOVWF  07
+0036:  BCF    03.5
+0037:  BTFSS  07.4
+0038:  GOTO   042
+....................       output_high(PIN_D2); 
+0039:  BSF    03.5
+003A:  BCF    08.2
+003B:  BCF    03.5
+003C:  BSF    08.2
+....................       delay_ms(0.1); 
+....................       output_low(PIN_D2); 
+003D:  BSF    03.5
+003E:  BCF    08.2
+003F:  BCF    03.5
+0040:  BCF    08.2
+....................       delay_ms(0.1); 
+....................      } 
+0041:  GOTO   032
+....................      while(input(pin_c5)) 
+....................      { 
+0042:  BSF    21.5
+0043:  MOVF   21,W
+0044:  BSF    03.5
+0045:  MOVWF  07
+0046:  BCF    03.5
+0047:  BTFSS  07.5
+0048:  GOTO   052
+....................       output_high(PIN_D2); 
+0049:  BSF    03.5
+004A:  BCF    08.2
+004B:  BCF    03.5
+004C:  BSF    08.2
+....................       delay_ms(0.05); 
+....................       output_low(PIN_D2); 
+004D:  BSF    03.5
+004E:  BCF    08.2
+004F:  BCF    03.5
+0050:  BCF    08.2
+....................       delay_ms(0.05); 
+....................      } 
+0051:  GOTO   042
+....................      while(input(pin_c6)) 
+....................      { 
+0052:  BSF    21.6
+0053:  MOVF   21,W
+0054:  BSF    03.5
+0055:  MOVWF  07
+0056:  BCF    03.5
+0057:  BTFSS  07.6
+0058:  GOTO   062
+....................       output_high(PIN_D2); 
+0059:  BSF    03.5
+005A:  BCF    08.2
+005B:  BCF    03.5
+005C:  BSF    08.2
+....................       delay_ms(0.025); 
+....................       output_low(PIN_D2); 
+005D:  BSF    03.5
+005E:  BCF    08.2
+005F:  BCF    03.5
+0060:  BCF    08.2
+....................       delay_ms(0.025); 
+....................      } 
+0061:  GOTO   052
+....................      while(input(pin_c7)) 
+....................      { 
+0062:  BSF    21.7
+0063:  MOVF   21,W
+0064:  BSF    03.5
+0065:  MOVWF  07
+0066:  BCF    03.5
+0067:  BTFSS  07.7
+0068:  GOTO   086
+....................       output_high(PIN_D2); 
+0069:  BSF    03.5
+006A:  BCF    08.2
+006B:  BCF    03.5
+006C:  BSF    08.2
+....................       delay_ms(0.02); 
+006D:  MOVLW  28
+006E:  MOVWF  22
+006F:  MOVLW  E3
+0070:  MOVWF  23
+0071:  CALL   004
+0072:  DECFSZ 22,F
+0073:  GOTO   06F
+0074:  MOVLW  01
+0075:  MOVWF  23
+0076:  CALL   004
+....................       output_low(PIN_D2); 
+0077:  BSF    03.5
+0078:  BCF    08.2
+0079:  BCF    03.5
+007A:  BCF    08.2
+....................       delay_ms(0.02); 
+007B:  MOVLW  28
+007C:  MOVWF  22
+007D:  MOVLW  E3
+007E:  MOVWF  23
+007F:  CALL   004
+0080:  DECFSZ 22,F
+0081:  GOTO   07D
+0082:  MOVLW  01
+0083:  MOVWF  23
+0084:  CALL   004
+....................      } 
+0085:  GOTO   062
+....................     
+....................  } 
+0086:  GOTO   032
+....................   
+.................... } 
+0087:  SLEEP
+
+Configuration Fuses:
+   Word  1: 3F71   XT NOWDT PUT NODEBUG NOPROTECT BROWNOUT NOLVP NOCPD NOWRT

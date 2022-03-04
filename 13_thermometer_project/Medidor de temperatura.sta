@@ -1,0 +1,76 @@
+
+ROM used: 3482 (43%)
+          3937 (48%) including unused fragments
+
+          1 Average locations per line
+          7 Average locations per statement
+
+RAM used: 194 (53%) at main() level
+          237 (64%) worst case
+
+Stack used: 6 worst case (out of 8 total available)
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+  203   143  29  Medidor de temperatura.c
+  326     0   0  ..\..\..\..\Archivos de programa\PICC\devices\16f877A.h
+  186    89  18  lcd3.c
+ 2172   260  53  ..\..\..\..\Archivos de programa\PICC\drivers\math.h
+----- -----
+ 2887   492 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0     21   1   1             @delay_ms1
+ Inline        1   236  2.3  lcd_leer
+0     69   2   3   388  2.9  lcd_enviar
+0     61   2   1   447  3.8  lcd_init
+0     61   2   4   667  6.0  lcd_gotoxy
+0     68   2   1   441  7.5  lcd_putc
+0     65   2  10             @FLT
+0     31   1   2             @ITOF
+0    204   6  14             @DIVFF
+0    326   9  16             @ADDFF
+0    119   3  13             @MULFF
+1   1316  38   4  3032  7.9  TIMER0_isr
+1    573  16   1  2197  7.8  MAIN
+0      6   0   0  2145  7.3  @const252
+0     58   2   3             @PSTRINGC7_85
+0      4   0   0             @const254
+0      7   0   0             @const255
+ Inline        5             @FTOSD
+0     68   2  13             @DIV3232
+0    255   7  13             @PRINTF_L32D_85FPFPF
+0      9   0   0             @const265
+0      5   0   0             @const266
+0     66   2   4             @PSTRINGCN7_85
+0      9   0   0             @const269
+0      5   0   0             @const270
+0      9   0   0             @const271
+0      5   0   0             @const272
+0      9   0   0             @const273
+0      6   0   0             @const274
+
+Program metrics:
+    Functions               8
+    Statements              492
+    Comments                376
+    Volume (V)              13272
+    Difficilty (D)          44.2
+    Effort to implement (E) 586400
+    Time to implement (T)   9 hours, 3 minutes
+    Est Delivered Bugs (B)  2
+    Cyclomatic Complexity   45
+    Maintainability (MI)    18
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00003     4  0  
+00004-0002E    43  0  
+0002F-007FF  1546  455  
+00800-00FFF  1889  159  
+01000-017FF     0  2048  
+01800-01FFF     0  2048  
+
+
+

@@ -1,0 +1,164 @@
+CCS PCM C Compiler, Version 4.104, 5967               06-Oct-11 12:48
+
+               Filename: C:\Documents and Settings\Administrador\Escritorio\Prueba\prueba.lst
+
+               ROM used: 98 words (1%)
+                         Largest free fragment is 2048
+               RAM used: 12 (3%) at main() level
+                         12 (3%) worst case
+               Stack:    1 worst case (0 in main + 1 for interrupts)
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   04E
+0003:  NOP
+0004:  MOVWF  7F
+0005:  SWAPF  03,W
+0006:  CLRF   03
+0007:  MOVWF  21
+0008:  MOVF   0A,W
+0009:  MOVWF  20
+000A:  CLRF   0A
+000B:  MOVF   04,W
+000C:  MOVWF  22
+000D:  MOVF   77,W
+000E:  MOVWF  23
+000F:  MOVF   78,W
+0010:  MOVWF  24
+0011:  MOVF   79,W
+0012:  MOVWF  25
+0013:  MOVF   7A,W
+0014:  MOVWF  26
+0015:  BCF    03.7
+0016:  BCF    03.5
+0017:  BTFSS  0B.3
+0018:  GOTO   01B
+0019:  BTFSC  0B.0
+001A:  GOTO   02C
+001B:  MOVF   22,W
+001C:  MOVWF  04
+001D:  MOVF   23,W
+001E:  MOVWF  77
+001F:  MOVF   24,W
+0020:  MOVWF  78
+0021:  MOVF   25,W
+0022:  MOVWF  79
+0023:  MOVF   26,W
+0024:  MOVWF  7A
+0025:  MOVF   20,W
+0026:  MOVWF  0A
+0027:  SWAPF  21,W
+0028:  MOVWF  03
+0029:  SWAPF  7F,F
+002A:  SWAPF  7F,W
+002B:  RETFIE
+002C:  BCF    0A.3
+002D:  BCF    0A.4
+002E:  GOTO   02F
+.................... #include <16F877.h>  
+.................... //////// Standard Header file for the PIC16F877 device //////////////// 
+.................... #device PIC16F877 
+.................... #list 
+....................  
+.................... //Configuración de los fusibles.  
+.................... #FUSES NOWDT, XT 
+.................... #use delay(clock=4000000) //Frecuencia de reloj 4MHz  
+.................... #byte puerto_B = 0x06 // Identificador para el puerto B.  
+.................... #byte puerto_D = 0x08 // Identificador para el puerto C.  
+....................  
+.................... #int_RB  
+.................... void RB_isr(void) //función de interrupción  
+.................... {  
+....................  
+.................... switch(puerto_B)  
+.................... {  
+002F:  MOVF   06,W
+0030:  XORLW  EF
+0031:  BTFSC  03.2
+0032:  GOTO   03D
+0033:  XORLW  30
+0034:  BTFSC  03.2
+0035:  GOTO   040
+0036:  XORLW  60
+0037:  BTFSC  03.2
+0038:  GOTO   043
+0039:  XORLW  C0
+003A:  BTFSC  03.2
+003B:  GOTO   046
+003C:  GOTO   049
+.................... case 239:  
+.................... puerto_D = 0x06;  
+003D:  MOVLW  06
+003E:  MOVWF  08
+.................... break;  
+003F:  GOTO   04A
+.................... case 223:  
+.................... puerto_D = 0x5B;  
+0040:  MOVLW  5B
+0041:  MOVWF  08
+.................... break;  
+0042:  GOTO   04A
+.................... case 191:  
+.................... puerto_D = 0x4F;  
+0043:  MOVLW  4F
+0044:  MOVWF  08
+.................... break;  
+0045:  GOTO   04A
+.................... case 127:  
+.................... puerto_D = 0x66;  
+0046:  MOVLW  66
+0047:  MOVWF  08
+.................... break;  
+0048:  GOTO   04A
+.................... default:  
+....................  
+.................... break;  
+0049:  GOTO   04A
+.................... }  
+.................... }  
+....................  
+004A:  BCF    0B.0
+004B:  BCF    0A.3
+004C:  BCF    0A.4
+004D:  GOTO   01B
+.................... void main()  
+.................... {  
+004E:  CLRF   04
+004F:  BCF    03.7
+0050:  MOVLW  1F
+0051:  ANDWF  03,F
+0052:  BSF    03.5
+0053:  BSF    1F.0
+0054:  BSF    1F.1
+0055:  BSF    1F.2
+0056:  BCF    1F.3
+.................... set_tris_b(0xFF); //Puerto B como entrada  
+0057:  MOVLW  FF
+0058:  MOVWF  06
+.................... set_tris_d( 0x00 ); // Puerto D como salida.  
+0059:  MOVLW  00
+005A:  MOVWF  08
+....................  
+.................... enable_interrupts(INT_RB);//habilita interrupción particular  
+005B:  BCF    03.5
+005C:  BSF    0B.3
+.................... enable_interrupts(GLOBAL);//habilita interrupción global  
+005D:  MOVLW  C0
+005E:  IORWF  0B,F
+....................  
+.................... puerto_D =0x00; //inicializo puerto D  
+005F:  CLRF   08
+....................  
+.................... while(True)  
+.................... {  
+.................... //código principal  
+....................  
+.................... }  
+0060:  GOTO   060
+....................  
+.................... } 
+0061:  SLEEP
+
+Configuration Fuses:
+   Word  1: 3F71   XT NOWDT PUT NOPROTECT BROWNOUT NOLVP NOCPD NOWRT NODEBUG
